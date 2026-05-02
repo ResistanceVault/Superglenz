@@ -332,7 +332,6 @@ cl1_init_copperlist
 	COP_LISTEND
 	rts
 
-
 	COP_INIT_PLAYFIELD_REGISTERS cl1,BLANK
 
 

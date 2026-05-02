@@ -164,12 +164,12 @@ cl2_vstart			EQU beam_position&CL_Y_WRAPPING
 sine_table_length		EQU 512
 
 ; Background-Image
+bg_image_x_position		EQU 18
+bg_image_y_position		EQU MINROW
 bg_image_x_size			EQU 256
 bg_image_plane_width		EQU bg_image_x_size/8
 bg_image_y_size			EQU 283
 bg_image_depth			EQU 4
-bg_image_x_position		EQU 18
-bg_image_y_position		EQU MINROW
 
 ; Sprite-Fader
 sprf_rgb8_start_color		EQU 1
@@ -509,7 +509,7 @@ cl1_init_copperlist
 	bsr	cl1_set_sprite_pointers
 	rts
 
-	COP_INIT_PLAYFIELD_REGISTERS cl1,BLANKSPR
+	COP_INIT_PLAYFIELD_REGISTERS cl1
 
 	COP_INIT_SPRITE_POINTERS cl1
 
@@ -742,7 +742,7 @@ sprfo_rgb8_color_table
 ; Gfx data
 
 ; Background-Image
-bg_image_data			SECTION gfx1,DATA
+bg_image_data			SECTION bg_gfx,DATA
 	INCBIN "Superglenz:graphics/256x283x16-Skyline.rawblit"
 
 	END

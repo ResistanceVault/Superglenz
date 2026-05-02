@@ -1010,15 +1010,11 @@ cl1_init_copperlist
 	bsr	cl1_set_plane_pointers
 	rts
 
-
 	COP_INIT_PLAYFIELD_REGISTERS cl1
-
 
 	COP_INIT_SPRITE_POINTERS cl1
 
-
 	COP_INIT_BITPLANE_POINTERS cl1
-
 
 	CNOP 0,4
 cl1_init_branches_pointers1
@@ -1048,7 +1044,6 @@ cl1_init_branches_pointers1_loop
 	COP_MOVEQ 0,COPJMP2
 	dbf	d7,cl1_init_branches_pointers1_loop
 	rts
-
 
 	CNOP 0,4
 cl1_init_branches_pointers2
@@ -1080,7 +1075,6 @@ cl1_init_branches_pointers2_loop
 	dbf	d7,cl1_init_branches_pointers2_loop
 	rts
 
-
 	CNOP 0,4
 cl1_reset_pointer
 	move.l	cl1_display(a3),d0
@@ -1092,12 +1086,9 @@ cl1_reset_pointer
 	move.w	d0,(a0)+
 	rts
 
-
 	COP_INIT_COPINT cl1,cl1_hstart3,cl1_vstart3,YWRAP
 
-
 	COP_SET_SPRITE_POINTERS cl1,display,spr_number
-
 
 	COP_SET_BITPLANE_POINTERS cl1,display,pf1_depth3
 
@@ -1109,7 +1100,6 @@ cl2_init_copperlist
 	bsr.s	cl2_init_bplcon4_chunky2
 	rts
 
-
 	CNOP 0,4
 cl2_init_bplcon4_chunky1
 	move.l	#(BPLCON4<<16)|bplcon4_bits,d0
@@ -1119,7 +1109,6 @@ cl2_init_bplcon4_chunky1_loop
 	dbf	d7,cl2_init_bplcon4_chunky1_loop
 	COP_MOVEQ 0,COPJMP1
 	rts
-
 
 	CNOP 0,4
 cl2_init_bplcon4_chunky2

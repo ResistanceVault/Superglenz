@@ -897,9 +897,7 @@ cl2_init_copperlist
 	bsr	mgv_cl2_set_copperlist
 	rts
 
-
 	COP_INIT_PLAYFIELD_REGISTERS cl2
-
 
 	CNOP 0,4
 cl2_init_colors
@@ -909,9 +907,7 @@ cl2_init_colors
 	COP_INIT_COLOR_LOW COLOR00,32,pf1_rgb8_color_table
 	rts
 
-
 	COP_INIT_BITPLANE_POINTERS cl2
-
 
 	CNOP 0,4
 cl2_init_line_blits_steady
@@ -929,7 +925,6 @@ cl2_init_line_blits_steady
 	COP_MOVEQ 0,COPJMP2
 	rts
 
-
 	CNOP 0,4
 cl2_init_line_blits
 	moveq	#mgv_lines_number_max-1,d7
@@ -946,7 +941,6 @@ cl1_init_line_blits_loop
 	dbf	d7,cl1_init_line_blits_loop
 	rts
 
-
 	CNOP 0,4
 cl2_init_fill_blit
 	COP_MOVEQ BC0F_SRCA|BC0F_DEST|ANBNC|ANBC|ABNC|ABC,BLTCON0 ; minterm D = A
@@ -960,7 +954,6 @@ cl2_init_fill_blit
 	COP_MOVEQ ((mgv_fill_blit_y_size*mgv_fill_blit_depth)<<6)|(mgv_fill_blit_x_size/WORD_BITS),BLTSIZE
 	rts
 
-
 	CNOP 0,4
 get_wrapper_view_values
 	move.l	cl2_construction2(a3),a0
@@ -970,9 +963,7 @@ get_wrapper_view_values
 	or.w	#v_fmode_bits,cl2_FMODE+WORD_SIZE(a0)
 	rts
 
-
 	COP_SET_BITPLANE_POINTERS cl2,construction2,pf1_depth3
-
 
 	COPY_COPPERLIST cl2,2
 

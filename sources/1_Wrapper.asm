@@ -81,9 +81,11 @@ pt_track_notes_played_enabled	EQU FALSE
 pt_track_volumes_enabled	EQU FALSE
 pt_track_periods_enabled	EQU FALSE
 pt_track_data_enabled		EQU FALSE
+	IFD PROTRACKER_VERSION_3
 pt_metronome_enabled		EQU FALSE
 pt_metrochanbits		EQU pt_metrochan1
 pt_metrospeedbits		EQU pt_metrospeed4th
+	ENDC
 
 dma_bits			EQU DMAF_COPPER|DMAF_SETCLR
 
@@ -417,7 +419,6 @@ cl1_init_copperlist
 	COP_LISTEND
 	rts
 
-
 	COP_INIT_PLAYFIELD_REGISTERS cl1,BLANK
 
 
@@ -507,8 +508,9 @@ vertb_interrupt_server
 		rts
 
 		PT_FADE_OUT_VOLUME global_stop_fx_active,GLOBALVAR
-
-		CNOP 0,4
+	ELSE
+		bsr.s	pt_PlayMusic
+		rts
 	ENDC
 
 	IFD PROTRACKER_VERSION_2 

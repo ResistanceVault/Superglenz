@@ -822,7 +822,6 @@ cl1_init_copperlist
 
 	COP_INIT_BITPLANE_POINTERS cl1
 
-
 	CNOP 0,4
 cl1_init_colors
 	COP_INIT_COLOR_HIGH COLOR16,16,spr_rgb8_color_table
@@ -832,7 +831,6 @@ cl1_init_colors
 	rts
 
 	COP_SET_SPRITE_POINTERS cl1,display,spr_number
-
 
 	CNOP 0,4
 cl1_set_plane_pointers
@@ -880,7 +878,6 @@ cl2_init_copperlist
 	bsr	mgv_cl2_set_copperlist
 	rts
 
-
 	CNOP 0,4
 cl2_init_clear_blit
 	COP_WAITBLIT
@@ -891,7 +888,6 @@ cl2_init_clear_blit
 	COP_MOVEQ 0,BLTDMOD
 	COP_MOVEQ ((mgv_clear_blit_y_size*mgv_clear_blit_depth)<<6)|(mgv_clear_blit_x_size/WORD_BITS),BLTSIZE
 	rts
-
 
 	CNOP 0,4
 cl2_init_line_blits_steady
@@ -909,7 +905,6 @@ cl2_init_line_blits_steady
 	COP_MOVEQ 0,COPJMP2
 	rts
 
-
 	CNOP 0,4
 cl2_init_line_blits
 	MOVEF.W	mgv_lines_number_max-1,d7
@@ -925,7 +920,6 @@ cl1_init_line_blits_loop
 	COP_WAITBLIT
 	dbf	d7,cl1_init_line_blits_loop
 	rts
-
 
 	CNOP 0,4
 cl2_init_fill_blit
@@ -1005,7 +999,7 @@ beam_routines_exit
 	SWAP_SPRITES spr_swap_number
 
 
-	SET_SPRITES spr_swap_number
+	SET_SPRITES cl1,spr_swap_number
 
 
 	SWAP_PLAYFIELD_BUFFERS pf1,2
